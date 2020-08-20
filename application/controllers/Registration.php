@@ -33,4 +33,10 @@ class Registration extends CI_Controller {
 		$data['meta_title'] 	= 'Registration List';
 		$this->load->view('index', $data);
 	}
+
+	public function registration_detail(){
+		$data['subview'] 			= 'registration/registration_detail';
+		$data['meta_title'] 	= 'Registration Detai';
+		$this->load->view('index', $data);
+	}
 }

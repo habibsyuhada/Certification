@@ -12,20 +12,36 @@
                 <table class="table data_table">
                   <thead>
                     <tr class="bg-info">
-                      <th class="text-white font-weight-bold"></th>
-                      <th class="text-white font-weight-bold">Tracking Number</th>
-                      <th class="text-white font-weight-bold">Shipper Name</th>
-                      <th class="text-white font-weight-bold">Receiver Name</th>
-                      <th class="text-white font-weight-bold">Container</th>
-                      <th class="text-white font-weight-bold">Status</th>
-                      <th class="text-white font-weight-bold">Shipment Type</th>
+                      <th class="text-white font-weight-bold">Requester</th>
+                      <th class="text-white font-weight-bold">Company</th>
+                      <th class="text-white font-weight-bold">Management System</th>
+                      <th class="text-white font-weight-bold">Category</th>
+                      <th class="text-white font-weight-bold">Type</th>
+                      <th class="text-white font-weight-bold">Scope</th>
+                      <th class="text-white font-weight-bold">Address</th>
+                      <th class="text-white font-weight-bold">Total Employee</th>
+                      <th class="text-white font-weight-bold">Date Created</th>
                       <th class="text-white font-weight-bold"></th>
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td>Habib Syuhada</td>
+                      <td>SMOE</td>
+                      <td>ISO 9001:2015</td>
+                      <td>Single</td>
+                      <td>New</td>
+                      <td>Marine</td>
+                      <td>Batam, Indonesia</td>
+                      <td>100</td>
+                      <td>2020-08-18</td>
+                      <td>
+                        <a href="<?php echo base_url() ?>registration/registration_detail" class="btn btn-secondary" title="View"><i class="fas fa-eye m-0"></i></a>
+                        <a href="<?php echo base_url() ?>#" class="btn btn-primary" title="Update"><i class="fas fa-edit m-0"></i></a>
+                      </td>
+                    </tr>
                     <?php foreach ($registration_list as $key => $value): ?>
                     <tr>
-                      <td><input type="checkbox" class="checkbox-20"></td>
                       <td><?php echo $value['tracking_no'] ?></td>
                       <td><?php echo $value['shipper_name'] ?></td>
                       <td><?php echo $value['consignee_name'] ?></td>
