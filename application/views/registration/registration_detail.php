@@ -296,7 +296,7 @@
                       <div class="form-group">
                         <label>Number Auditor</label>
                         <div class="input-group">
-                          <input type="number" class="form-control" name="num_audit" required>
+                          <input type="number" class="form-control" name="num_audit" value="<?php echo $registration['num_audit'] ?>" required>
                           <span class="input-group-append" id="basic-addon3">
                             <label class="input-group-text">Auditor</label>
                           </span>
@@ -305,7 +305,7 @@
                       <div class="form-group">
                         <label>Time for Audit</label>
                         <div class="input-group">
-                          <input type="number" class="form-control" name="day_audit" required>
+                          <input type="number" class="form-control" name="day_audit" value="<?php echo $registration['day_audit'] ?>" required>
                           <span class="input-group-append" id="basic-addon3">
                             <label class="input-group-text">Day</label>
                           </span>
@@ -318,7 +318,7 @@
                       <!-- <span class="btn btn-danger previous-tab">Back</span> -->
                     </div>
                     <div class="text-right col-6">
-                      <button type="submit" class="btn btn-success" onclick="return confirm('Are you sure?')">Submit</button>
+                      <button type="submit" class="btn btn-success" onclick="return confirm('Are you sure?')">Update</button>
                     </div>
                   </div>
                 </form>
