@@ -20,6 +20,7 @@ class Registration extends CI_Controller {
 	 */
   public function __construct(){
 		parent::__construct();
+		$this->load->model('registration_mod');
   }
   
 	public function index(){
@@ -27,16 +28,34 @@ class Registration extends CI_Controller {
   }
   
   public function registration_list(){
-    $data['registration_list'] 			= array();
+    $data['registration_list'] 			= $this->registration_mod->register_list_db();
     
 		$data['subview'] 			= 'registration/registration_list';
 		$data['meta_title'] 	= 'Registration List';
 		$this->load->view('index', $data);
 	}
 
-	public function registration_detail(){
+	public function registration_detail($id){
+		$where['id'] 						= $id;
+		$registration_list 			= $this->registration_mod->register_list_db($where);
+		$data['registration'] 	= $registration_list[0];
+		
 		$data['subview'] 			= 'registration/registration_detail';
-		$data['meta_title'] 	= 'Registration Detai';
+		$data['meta_title'] 	= 'Registration Detail';
 		$this->load->view('index', $data);
+	}
+
+	public function registration_reviewqa_process(){
+		print_r($this->input->post());
+		$post = $this->input->post();
+		$form_data = array(
+			'num_audit' 	=> $post['num_audit'],
+			'day_audit' 	=> $post['day_audit'],
+			'status' 			=> 1,
+		);
+		$where['id'] = $post['id'];
+		$this->registration_mod->register_update_process_db($form_data, $where);
+		$this->session->set_flashdata('success', 'Your data has been updated!');
+		redirect('registration/registration_detail/'.$post['id']);
 	}
 }

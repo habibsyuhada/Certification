@@ -19,40 +19,31 @@
                       <th class="text-white font-weight-bold">Type</th>
                       <th class="text-white font-weight-bold">Scope</th>
                       <th class="text-white font-weight-bold">Address</th>
-                      <th class="text-white font-weight-bold">Total Employee</th>
-                      <th class="text-white font-weight-bold">Date Created</th>
+                      <th class="text-white font-weight-bold">Status</th>
+                      <th class="text-white font-weight-bold">Date Register</th>
                       <th class="text-white font-weight-bold"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Habib Syuhada</td>
-                      <td>SMOE</td>
-                      <td>ISO 9001:2015</td>
-                      <td>Single</td>
-                      <td>New</td>
-                      <td>Marine</td>
-                      <td>Batam, Indonesia</td>
-                      <td>100</td>
-                      <td>2020-08-18</td>
-                      <td>
-                        <a href="<?php echo base_url() ?>registration/registration_detail" class="btn btn-secondary" title="View"><i class="fas fa-eye m-0"></i></a>
-                        <a href="<?php echo base_url() ?>#" class="btn btn-primary" title="Update"><i class="fas fa-edit m-0"></i></a>
-                      </td>
-                    </tr>
                     <?php foreach ($registration_list as $key => $value): ?>
                     <tr>
-                      <td><?php echo $value['tracking_no'] ?></td>
-                      <td><?php echo $value['shipper_name'] ?></td>
-                      <td><?php echo $value['consignee_name'] ?></td>
-                      <td></td>
-                      <td><?php echo $value['status'] ?></td>
-                      <td><?php echo $value['type_of_shipment'] ?></td>
+                      <td><?php echo $value['name'] ?></td>
+                      <td><?php echo $value['company_name'] ?></td>
+                      <td><?php echo $value['management_system'] ?></td>
+                      <td><?php echo $value['type_management_system'] ?></td>
+                      <td><?php echo $value['type_application'] ?></td>
+                      <td><?php echo $value['scope_company'] ?></td>
+                      <td><?php echo $value['address_site'] ?></td>
                       <td>
-                        <a href="<?php echo base_url() ?>shipment/shipment_tracking/<?php echo $value['id'] ?>" class="btn btn-secondary" title="View"><i class="fas fa-eye m-0"></i></a>
-                        <a href="#" class="btn btn-warning" title="Print"><i class="fas fa-print m-0"></i></a>
-                        <a href="<?php echo base_url() ?>shipment/shipment_update/<?php echo $value['id'] ?>" class="btn btn-primary" title="Update"><i class="fas fa-edit m-0"></i></a>
-                        <a href="<?php echo base_url(); ?>shipment/shipment_delete_process/<?php echo $value['id'] ?>" onclick="return confirm('Are you sure to delete this? You cannot revert it later.')" class="btn btn-danger" title="Delete"><i class="fas fa-trash m-0"></i></a>
+                        <?php if($value['status'] == 0): ?>
+                          <span class="badge badge-pill badge-primary mb-1">Waiting For Review</span>
+                        <?php else: ?>
+                          <span class="badge badge-pill badge-success mb-1">Reviewed by QA</span>
+                        <?php endif; ?>
+                      </td>
+                      <td><?php echo $value['date_created'] ?></td>
+                      <td>
+                        <a href="<?php echo base_url() ?>registration/registration_detail/<?php echo $value['id'] ?>" class="btn btn-secondary" title="Update"><i class="fas fa-edit m-0"></i></a>
                       </td>
                     </tr>
                     <?php endforeach; ?>
